@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aventura de Idiomas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="app">
+
+<section id="welcome" class="screen active">
+  <div class="card">
+    <div class="logo">🌎</div>
+    <h1>¡Hola!</h1>
+    <p>Tu aventura para aprender idiomas comienza aquí.</p>
+    <button class="primary" onclick="showScreen('profile')">Comenzar aventura 🚀</button>
+  </div>
+</section>
+
+<section id="profile" class="screen">
+  <div class="card">
+    <div class="step">PASO 1 DE 2</div>
+    <div class="emoji-big">👋</div>
+    <h2>¿Cómo te llamas?</h2>
+    <p>Por ahora escribe tu nombre. Más adelante podremos hacerlo con tu voz.</p>
+    <input id="name" type="text" placeholder="Escribe tu nombre" maxlength="30">
+    <p id="message" class="message"></p>
+    <button class="primary" onclick="saveProfile()">Continuar ➜</button>
+  </div>
+</section>
+
+<section id="character" class="screen">
+  <div class="card">
+    <div class="step">PASO 2 DE 2</div>
+    <h2>Elige tu compañero</h2>
+    <p>Será tu amigo durante toda la aventura.</p>
+    <div class="characters">
+      <button class="character" onclick="chooseCharacter(this,'👧','Niña')"><span>👧</span><small>Niña</small></button>
+      <button class="character" onclick="chooseCharacter(this,'👦','Niño')"><span>👦</span><small>Niño</small></button>
+      <button class="character" onclick="chooseCharacter(this,'🐶','Animal')"><span>🐶</span><small>Animal</small></button>
+      <button class="character" onclick="chooseCharacter(this,'🤖','Robot')"><span>🤖</span><small>Robot</small></button>
+      <button class="character" onclick="chooseCharacter(this,'🧚','Fantasía')"><span>🧚</span><small>Fantasía</small></button>
+      <button class="character" onclick="chooseCharacter(this,'🐱','Mascota')"><span>🐱</span><small>Mascota</small></button>
+    </div>
+    <p id="characterMessage" class="message"></p>
+    <button id="finishButton" class="primary disabled" onclick="finishProfile()">¡Listo! ✨</button>
+  </div>
+</section>
+
+<section id="ready" class="screen">
+  <div class="card">
+    <div id="chosenEmoji" class="companion">🤖</div>
+    <h2 id="hello">¡Hola!</h2>
+    <p id="readyText">Tu compañero te acompañará en cada aventura.</p>
+    <button class="primary" onclick="showScreen('language')">Elegir idioma 🌎</button>
+  </div>
+</section>
+
+<section id="language" class="screen">
+  <div class="card">
+    <div class="step">SIGUIENTE PASO</div>
+    <div class="emoji-big">🌎</div>
+    <h2>¿Qué idioma quieres aprender?</h2>
+    <p>En cada aventura aprenderemos <strong>un solo idioma a la vez</strong>.</p>
+    <div class="language-list">
+      <button onclick="selectLanguage('English')">🇺🇸 English</button>
+      <button onclick="selectLanguage('Français')">🇫🇷 Français</button>
+      <button onclick="selectLanguage('Deutsch')">🇩🇪 Deutsch</button>
+      <button onclick="selectLanguage('Italiano')">🇮🇹 Italiano</button>
+      <button onclick="selectLanguage('Português')">🇵🇹 Português</button>
+    </div>
+    <p id="languageMessage" class="message"></p>
+  </div>
+</section>
+
+<section id="world" class="screen">
+  <div class="card">
+    <div class="world-character" id="worldCharacter">🤖</div>
+    <h2>🌈 Mundo de English</h2>
+    <p>Elige una aventura para comenzar.</p>
+    <button class="topic unlocked" onclick="startColors()">🎨 Colors <span>⭐</span></button>
+    <button class="topic locked">🐾 Animals <span>🔒</span></button>
+    <button class="topic locked">🔢 Numbers <span>🔒</span></button>
+    <button class="topic locked">🍎 Food <span>🔒</span></button>
+  </div>
+</section>
+
+<section id="adventure" class="screen">
+  <div class="card adventure-card">
+    <div class="forest">🌳 🌲 🌳</div>
+    <div id="adventureCharacter" class="world-character">🤖</div>
+    <h2 id="adventureTitle">🌟 El misterio del color rojo</h2>
+    <p id="storyText">¡Wow! Look! A magic forest! Hay una puerta mágica que necesita un color para abrirse.</p>
+    <div id="object" class="object">🚪</div>
+    <button class="primary" onclick="nextAdventure()">Continuar ➜</button>
+  </div>
+</section>
+
+<section id="learnRed" class="screen">
+  <div class="card">
+    <div id="learnCharacter" class="world-character">🤖</div>
+    <div class="red-apple">🍎</div>
+    <h2>Look! It's <span class="red-word">RED</span>!</h2>
+    <p>Escucha la palabra y repítela.</p>
+    <button class="listen" onclick="speakRed()">🔊 Escuchar: <strong>RED</strong></button>
+    <button class="primary" onclick="repeatRed()">👄 Repetir RED</button>
+    <p id="repeatMessage" class="message"></p>
+  </div>
+</section>
+
+<section id="game" class="screen">
+  <div class="card">
+    <div class="game-top">🎮 ¡Busca el color RED!</div>
+    <p>Ayuda a tu compañero a encontrar todos los objetos rojos.</p>
+    <div class="objects">
+      <button onclick="pickColor(this,true)">🍎</button>
+      <button onclick="pickColor(this,false)">🔵</button>
+      <button onclick="pickColor(this,true)">❤️</button>
+      <button onclick="pickColor(this,false)">🟡</button>
+      <button onclick="pickColor(this,true)">🌹</button>
+      <button onclick="pickColor(this,false)">🟢</button>
+    </div>
+    <p id="gameMessage" class="message"></p>
+    <button id="gameContinue" class="primary disabled" onclick="showScreen('challenge')">Continuar ➜</button>
+  </div>
+</section>
+
+<section id="challenge" class="screen">
+  <div class="card">
+    <div id="challengeCharacter" class="world-character">🤖</div>
+    <h2>🧠 ¡Pequeño desafío!</h2>
+    <p>What color is the apple?</p>
+    <div class="answers">
+      <button onclick="answerColor(this,'Blue')">🔵 Blue</button>
+      <button onclick="answerColor(this,'Red')">🔴 Red</button>
+      <button onclick="answerColor(this,'Yellow')">🟡 Yellow</button>
+    </div>
+    <p id="answerMessage" class="message"></p>
+  </div>
+</section>
+
+<section id="reward" class="screen">
+  <div class="card">
+    <div class="stars">🌟 ⭐ 🌟</div>
+    <div id="rewardCharacter" class="world-character">🤖</div>
+    <h2>🎉 ¡You did it!</h2>
+    <p id="rewardText">¡Has aprendido tu primera palabra de colores!</p>
+    <div class="mastery">🔴 RED <strong>✓ Aprendida</strong></div>
+    <button class="primary" onclick="showScreen('world')">Volver al mundo 🌈</button>
+  </div>
+</section>
+
+</main>
+<script src="app.js"></script>
+</body>
+</html>
