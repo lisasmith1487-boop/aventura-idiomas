@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Aventura de Idiomas</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main id="app">
+  <section class="world">
+    <img class="world-art" src="mundo_inicio.png" alt="Mundo de Aventura de Idiomas">
+    <div class="robot-wrap" id="robotWrap">
+      <img src="robot_mascot.png" class="robot" alt="Robot compañero">
+    </div>
+    <div class="speech" id="speech"><b>¡Hola!</b><br>Vamos a tener una gran aventura.<br>¿Cómo te llamas?</div>
+
+    <div class="top-logo">🌎 <strong>Aventura de Idiomas</strong><small>Juega • Aprende • Explora • Crece</small></div>
+    <button class="language">🌐 Español ▾</button>
+
+    <div class="side-menu">
+      <button>🎮 Juega</button><button>📚 Aprende</button>
+      <button>🧭 Explora</button><button>🌱 Crece</button>
+    </div>
+
+    <div class="name-card">
+      <input id="name" placeholder="Escribe tu nombre" autocomplete="name">
+      <button id="continue" class="continue">Continuar →</button>
+      <button id="voice" class="voice">🎙️ Decírmelo</button>
+      <p id="micState">La voz es opcional si el navegador no la permite.</p>
+    </div>
+
+    <div class="adventure-banner">✨ ¡Un mundo de aventuras te espera! ✨</div>
+  </section>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
