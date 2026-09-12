@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Aventura de Idiomas</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="screen">
+  <img class="master-art" src="mundo_inicio.png" alt="Aventura de Idiomas">
+
+  <!-- Hotspots funcionales: son transparentes para no duplicar el boceto. -->
+  <button id="languageHotspot" class="hotspot language-hotspot" aria-label="Selector de idioma"></button>
+  <button id="playHotspot" class="hotspot play-hotspot" aria-label="Juega"></button>
+  <button id="learnHotspot" class="hotspot learn-hotspot" aria-label="Aprende"></button>
+  <button id="exploreHotspot" class="hotspot explore-hotspot" aria-label="Explora"></button>
+  <button id="growHotspot" class="hotspot grow-hotspot" aria-label="Crece"></button>
+
+  <input id="name" class="name-hotspot" aria-label="Nombre" autocomplete="name">
+  <button id="continue" class="continue-hotspot" aria-label="Continuar"></button>
+  <button id="voice" class="voice-hotspot" aria-label="Decírmelo"></button>
+
+  <div id="speechLive" class="sr-live" aria-live="polite"></div>
+  <div id="micState" class="sr-live" aria-live="polite"></div>
+</main>
+<script src="app.js"></script>
+</body>
+</html>

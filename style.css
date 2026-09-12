@@ -1,0 +1,23 @@
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#8fd7ef}
+body{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.screen{position:relative;width:100vw;height:100dvh;min-height:600px;overflow:hidden}
+.master-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0;user-select:none;-webkit-user-drag:none}
+.hotspot,.name-hotspot{position:absolute;z-index:5;border:0;background:transparent;padding:0;margin:0}
+.hotspot{cursor:pointer}
+.language-hotspot{top:2%;right:2%;width:25%;height:7%}
+.play-hotspot{left:1%;top:27%;width:22%;height:7%}
+.learn-hotspot{left:1%;top:34%;width:22%;height:7%}
+.explore-hotspot{left:1%;top:41%;width:22%;height:7%}
+.grow-hotspot{left:1%;top:48%;width:22%;height:7%}
+
+/* El campo real se coloca exactamente sobre el campo dibujado en el boceto. */
+.name-hotspot{left:18%;top:55%;width:64%;height:6.5%;padding:0 3%;font-size:18px;font-weight:700;color:#29465b;background:transparent;outline:none}
+.name-hotspot::placeholder{color:transparent}
+.continue-hotspot{left:17%;top:68%;width:66%;height:6%;border-radius:25px}
+.voice-hotspot{left:17%;top:76%;width:66%;height:6%;border-radius:25px}
+.sr-live{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+@media(max-width:700px){
+ .name-hotspot{font-size:16px}
+}
