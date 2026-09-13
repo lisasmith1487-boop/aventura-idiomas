@@ -1,0 +1,45 @@
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#7ed3ef}
+body{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.screen{position:relative;width:100vw;height:100dvh;overflow:hidden}
+.master{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0}
+.robot{position:absolute;z-index:4;left:50%;top:26%;width:min(39vw,410px);transform:translateX(-50%);pointer-events:none;animation:float 3.1s ease-in-out infinite;filter:drop-shadow(0 18px 15px rgba(18,58,80,.28))}
+.robot img{width:100%;display:block}
+.robot.talking{animation:talk .38s ease-in-out infinite alternate}
+.robot.listening{animation:listen 1s ease-in-out infinite alternate}
+.robot.excited{animation:excited .5s ease-in-out 4}
+@keyframes float{0%,100%{transform:translateX(-50%) translateY(0) rotate(0)}50%{transform:translateX(-50%) translateY(-14px) rotate(1deg)}}
+@keyframes talk{to{transform:translateX(-50%) translateY(-7px) scale(1.025)}}
+@keyframes listen{to{transform:translateX(-50%) translateY(-10px) rotate(2deg) scale(1.015)}}
+@keyframes excited{50%{transform:translateX(-50%) translateY(-26px) rotate(-3deg) scale(1.04)}}
+.water{position:absolute;z-index:3;right:4%;top:39%;width:42%;height:39%;pointer-events:none;opacity:.32;mix-blend-mode:screen;border-radius:40%;background:repeating-linear-gradient(100deg,transparent 0 17px,rgba(255,255,255,.58) 18px 21px,transparent 22px 42px);background-size:180px 250px;animation:flow 1.9s linear infinite}
+@keyframes flow{to{background-position:95px 230px;transform:translateY(5px)}}
+.hot{position:absolute;z-index:8;border:0;background:transparent;padding:0}
+.lang{right:2%;top:2%;width:25%;height:7%}
+.juega{left:1%;top:32.5%;width:22%;height:6.2%}
+.aprende{left:1%;top:38.5%;width:22%;height:6.2%}
+.explora{left:1%;top:44.5%;width:22%;height:6.2%}
+.crece{left:1%;top:50.5%;width:22%;height:6.2%}
+.name-card{position:absolute;z-index:10;left:50%;bottom:8%;transform:translateX(-50%);width:min(450px,49vw);padding:15px;background:rgba(255,255,255,.96);border-radius:24px;box-shadow:0 15px 32px rgba(23,50,77,.28)}
+.name-card input{width:100%;height:48px;border:3px solid #b9ddea;border-radius:15px;padding:0 14px;font-size:17px;outline:none;color:#29465b;font-weight:700}
+.name-card input::placeholder{color:#94a3ad;font-weight:600}
+.continue,.voice{width:100%;height:46px;border:0;border-radius:15px;margin-top:9px;font-weight:900;font-size:17px}
+.continue{background:#ffd13e;color:#513d00}
+.voice{background:#cce5fb;color:#1262ad}
+.name-card p{margin:7px 0 0;text-align:center;font-size:12px;color:#536b78}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media(max-width:700px){
+ .master{object-fit:cover;object-position:center}
+ .robot{width:245px;top:18%}
+ .water{right:3%;top:39%;width:42%;height:38%}
+ .name-card{width:88vw;bottom:7%;padding:13px}
+ .name-card input{height:47px;font-size:16px}
+ .continue,.voice{height:45px}
+ .lang{width:29%}
+ .juega,.aprende,.explora,.crece{width:24%;height:6%}
+}
+@media(max-width:430px){
+ .robot{width:225px;top:18%}
+ .name-card{width:89vw}
+ .juega{top:32.5%}.aprende{top:38.5%}.explora{top:44.5%}.crece{top:50.5%}
+}
